@@ -26,24 +26,17 @@ class _MyappState extends State<Myapp> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Text((postResult != null
-                  ? postResult!.id +
-                      " | " +
-                      postResult!.name +
-                      " | " +
-                      postResult!.job +
-                      " | " +
-                      postResult!.crated
+              Text((user != null
+                  ? (user!.id).toString() + " | " + (user!.name).toString()
                   : "Tidak ada Data")),
               ElevatedButton(
                   onPressed: () {
-                    PostResult.connectToApi("Dodo Widodo", "admin")
-                        .then((value) {
-                      postResult = value;
+                    User.connectToApi("3").then((value) {
+                      user = value;
                       setState(() {});
                     });
                   },
-                  child: Text("post"))
+                  child: Text("Get"))
             ],
           ),
         ),
